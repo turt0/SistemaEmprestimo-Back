@@ -7,6 +7,15 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import modelo.Amigo;
 
-public class AmigoServico {
+@WebService
+@SOAPBinding(style = SOAPBinding.Style.RPC)
+public interface AmigoServico {
+    
+    /**
+     * Retorna a lista de todos os amigos cadastrados.
+     */
+    @WebMethod(operationName = "listar")
+    List<Amigo> listar();
+    
     
 }
