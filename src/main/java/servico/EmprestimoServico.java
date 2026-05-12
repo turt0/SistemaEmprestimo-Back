@@ -20,4 +20,10 @@ public interface EmprestimoServico {
      */
     @WebMethod(operationName = "listar")
     List<Emprestimo> listar();
+    
+    /**
+     * Insere um novo empréstimo. O id é gerado pelo servidor.
+     */
+    @WebMethod(operationName = "inserir")
+    boolean inserir(@WebParam(name = "emprestimo") Emprestimo emprestimo);
 }
