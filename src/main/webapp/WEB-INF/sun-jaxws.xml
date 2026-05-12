@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoints version="2.0"
            xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
-
+ 
     <!-- Cada endpoint mapeia uma classe @WebService a uma URL servida pelo Tomcat. -->
     <endpoint
-        implementation="com.servico.AmigoServicoImpl"
+        implementation="servico.AmigoServicoImpl"
         name="AmigoServico"
         url-pattern="/AmigoServico"/>
-
+ 
     <endpoint
-        implementation="com.servico.FerramentaServicoImpl"
+        implementation="servico.FerramentaServicoImpl"
         name="FerramentaServico"
         url-pattern="/FerramentaServico"/>
-
+ 
     <endpoint
-        implementation="com.servico.EmprestimoServicoImpl"
+        implementation="servico.EmprestimoServicoImpl"
         name="EmprestimoServico"
         url-pattern="/EmprestimoServico"/>
 </endpoints>
