@@ -182,6 +182,29 @@ public class EmprestimoDAO extends BaseDAO {
     }
 
     /*
+     * RF08 - verifica se um amigo tem ao menos um empréstimo
+     * sem devolução registrada (dt_devolucao_real IS NULL).
+     */
+    public boolean amigoTemPendencia(int idAmigo) {
+        String sql = "SELECT COUNT(*) qtd FROM tb_emprestimos "
+                + "WHERE id_amigo = ? AND dt_devolucao_real IS NULL";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt.setInt(1, idAmigo);
+            ResultSet rs = stmt.executeQuery();
+            int qtd = 0;
+            if (rs.next()) {
+                qtd = rs.getInt("qtd");
+            }
+            stmt.close();
+            return qtd > 0;
+        } catch (SQLException erro) {
+            System.out.println(erro.getMessage());
+            return false;
+        }
+    }
+
+    /*
      * Método para gerar o resumo do relatório de empréstimos.
      */
     public String gerarResumoRelatorio() {
@@ -196,12 +219,13 @@ public class EmprestimoDAO extends BaseDAO {
             sb.append("Nenhum empréstimo cadastrado.\n\n");
         } else {
             for (Emprestimo e : lista) {
+                boolean ativo = e.getDtDevolucaoReal() == null;
                 sb.append("ID ").append(e.getId())
                         .append(" | Amigo: ").append(e.getAmigo().getNome())
                         .append(" | Ferramenta: ").append(e.getFerramenta().getNome())
                         .append(" | Empréstimo: ").append(sdf.format(e.getDtEmprestimo()))
                         .append(" | Prev. devolução: ").append(sdf.format(e.getDtDevolucaoPrevista()))
-                        .append(" | Status: ").append(e.isAtivo() ? "ATIVO" : "DEVOLVIDO")
+                        .append(" | Status: ").append(ativo ? "ATIVO" : "DEVOLVIDO")
                         .append("\n");
             }
             sb.append("\n");
