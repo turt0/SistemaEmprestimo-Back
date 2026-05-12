@@ -38,5 +38,12 @@ public interface EmprestimoServico {
      */
     @WebMethod(operationName = "deletar")
     boolean deletar(@WebParam(name = "id") int id);
+    
+    /**
+     * Registra a devolução de um empréstimo (preenche dt_devolucao_real
+     * com a data atual).
+     */
+    @WebMethod(operationName = "registrarDevolucao")
+    boolean registrarDevolucao(@WebParam(name = "id") int id);
  
 }
