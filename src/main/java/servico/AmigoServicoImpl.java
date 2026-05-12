@@ -37,4 +37,13 @@ public class AmigoServicoImpl implements AmigoServico {
         amigo.setId(novoId);
         return dao.insertAmigoBD(amigo);
     }
+    
+    @Override
+    public boolean alterar(Amigo amigo) {
+        System.out.println("AmigoServico: executando alterar(" + amigo + ")");
+        if (amigo == null || amigo.getId() <= 0) {
+            return false;
+        }
+        return dao.updateAmigoBD(amigo);
+    }
 }
