@@ -14,7 +14,7 @@ public class AmigoServicoImpl implements AmigoServico {
     private final AmigoDAO dao = new AmigoDAO();
     
     @Override
-    public List<Amigo> listar() {
+    public ArrayList<Amigo> listar() {
         System.out.println("AAmigoServico: executando listar()");
         return new ArrayList<>(dao.getMinhaLista());
     }
