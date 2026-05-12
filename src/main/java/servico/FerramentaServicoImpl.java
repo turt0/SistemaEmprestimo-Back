@@ -55,4 +55,10 @@ public class FerramentaServicoImpl implements FerramentaServico{
         }
         return dao.deleteFerramentaBD(id);
     }
+    
+    @Override
+    public double getTotalGasto() {
+        System.out.println("FerramentaServico: executando getTotalGasto()");
+        return dao.getTotalGasto();
+    }
 }
