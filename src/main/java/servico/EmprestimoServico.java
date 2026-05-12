@@ -45,5 +45,11 @@ public interface EmprestimoServico {
      */
     @WebMethod(operationName = "registrarDevolucao")
     boolean registrarDevolucao(@WebParam(name = "id") int id);
- 
+    
+    /**
+     * Retorna o resumo textual de todos os empréstimos, incluindo
+     * quem fez mais empréstimos e quem ainda não devolveu.
+     */
+    @WebMethod(operationName = "gerarResumoRelatorio")
+    String gerarResumoRelatorio();
 }
