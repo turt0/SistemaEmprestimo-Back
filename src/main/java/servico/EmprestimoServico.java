@@ -1,6 +1,7 @@
 
 package servico;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -19,7 +20,7 @@ public interface EmprestimoServico {
      * Retorna a lista de todos os empréstimos.
      */
     @WebMethod(operationName = "listar")
-    List<Emprestimo> listar();
+    ArrayList<Emprestimo> listar();
     
     /**
      * Insere um novo empréstimo. O id é gerado pelo servidor.
