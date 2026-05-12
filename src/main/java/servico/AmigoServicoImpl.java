@@ -19,4 +19,9 @@ public class AmigoServicoImpl implements AmigoServico {
         return new ArrayList<>(dao.getMinhaLista());
     }
     
+    @Override
+    public Amigo carregar(int id) {
+        System.out.println("AmigoServico: executando carregar(" + id + ")");
+        return dao.carregaAmigo(id);
+    }
 }
