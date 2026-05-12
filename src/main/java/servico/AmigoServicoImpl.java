@@ -24,4 +24,17 @@ public class AmigoServicoImpl implements AmigoServico {
         System.out.println("AmigoServico: executando carregar(" + id + ")");
         return dao.carregaAmigo(id);
     }
+    
+    @Override
+    public boolean inserir(Amigo amigo) {
+        System.out.println("AmigoServico: executando inserir(" + amigo + ")");
+        if (amigo == null) {
+            return false;
+        }
+        // Geração do id é responsabilidade do servidor, não do cliente,
+        // para evitar colisões em ambiente distribuído.
+        int novoId = dao.maiorID() + 1;
+        amigo.setId(novoId);
+        return dao.insertAmigoBD(amigo);
+    }
 }
