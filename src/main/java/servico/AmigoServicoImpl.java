@@ -46,4 +46,13 @@ public class AmigoServicoImpl implements AmigoServico {
         }
         return dao.updateAmigoBD(amigo);
     }
+    
+    @Override
+    public boolean deletar(int id) {
+        System.out.println("AmigoServico: executando deletar(" + id + ")");
+        if (id <= 0) {
+            return false;
+        }
+        return dao.deleteAmigoBD(id);
+    }
 }
