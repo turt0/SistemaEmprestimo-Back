@@ -16,7 +16,7 @@ public class EmprestimoServicoImpl implements EmprestimoServico{
     private final EmprestimoDAO dao = new EmprestimoDAO();
  
     @Override
-    public List<Emprestimo> listar() {
+    public ArrayList<Emprestimo> listar() {
         System.out.println("EmprestimoServico: executando listar()");
         return new ArrayList<>(dao.getMinhaLista());
     }
