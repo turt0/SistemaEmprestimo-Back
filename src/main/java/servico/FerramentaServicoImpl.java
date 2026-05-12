@@ -37,4 +37,13 @@ public class FerramentaServicoImpl implements FerramentaServico{
         ferramenta.setId(novoId);
         return dao.insertFerramentaBD(ferramenta);
     }
+    
+    @Override
+    public boolean alterar(Ferramenta ferramenta) {
+        System.out.println("FerramentaServico: executando alterar(" + ferramenta + ")");
+        if (ferramenta == null || ferramenta.getId() <= 0) {
+            return false;
+        }
+        return dao.updateFerramentaBD(ferramenta);
+    }
 }
