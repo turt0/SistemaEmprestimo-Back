@@ -16,7 +16,7 @@ public class FerramentaServicoImpl implements FerramentaServico{
     private final FerramentaDAO dao = new FerramentaDAO();
  
     @Override
-    public List<Ferramenta> listar() {
+    public ArrayList<Ferramenta> listar() {
         System.out.println("FerramentaServico: executando listar()");
         return new ArrayList<>(dao.getMinhaLista());
     }
