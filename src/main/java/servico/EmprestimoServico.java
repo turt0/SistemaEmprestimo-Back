@@ -26,4 +26,11 @@ public interface EmprestimoServico {
      */
     @WebMethod(operationName = "inserir")
     boolean inserir(@WebParam(name = "emprestimo") Emprestimo emprestimo);
+    
+    /**
+     * Altera um empréstimo existente.
+     */
+    @WebMethod(operationName = "alterar")
+    boolean alterar(@WebParam(name = "emprestimo") Emprestimo emprestimo);
+ 
 }
