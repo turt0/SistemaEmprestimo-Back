@@ -1,6 +1,7 @@
 
 package servico;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -19,7 +20,7 @@ public interface FerramentaServico {
      * Retorna a lista de todas as ferramentas cadastradas.
      */
     @WebMethod(operationName = "listar")
-    List<Ferramenta> listar();
+    ArrayList<Ferramenta> listar();
     
     /**
      * Carrega uma ferramenta específica pelo seu id.
