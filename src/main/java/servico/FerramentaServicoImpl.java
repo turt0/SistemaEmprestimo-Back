@@ -20,4 +20,10 @@ public class FerramentaServicoImpl implements FerramentaServico{
         System.out.println("FerramentaServico: executando listar()");
         return new ArrayList<>(dao.getMinhaLista());
     }
+    
+    @Override
+    public Ferramenta carregar(int id) {
+        System.out.println("FerramentaServico: executando carregar(" + id + ")");
+        return dao.carregaFerramenta(id);
+    }
 }
