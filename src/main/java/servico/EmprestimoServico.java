@@ -32,5 +32,11 @@ public interface EmprestimoServico {
      */
     @WebMethod(operationName = "alterar")
     boolean alterar(@WebParam(name = "emprestimo") Emprestimo emprestimo);
+    
+    /**
+     * Remove um empréstimo pelo seu id.
+     */
+    @WebMethod(operationName = "deletar")
+    boolean deletar(@WebParam(name = "id") int id);
  
 }
