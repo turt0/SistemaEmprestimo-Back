@@ -46,4 +46,13 @@ public class FerramentaServicoImpl implements FerramentaServico{
         }
         return dao.updateFerramentaBD(ferramenta);
     }
+    
+    @Override
+    public boolean deletar(int id) {
+        System.out.println("FerramentaServico: executando deletar(" + id + ")");
+        if (id <= 0) {
+            return false;
+        }
+        return dao.deleteFerramentaBD(id);
+    }
 }
