@@ -23,7 +23,7 @@ public class Emprestimo {
     public Emprestimo() {
         this(0, null, null, null, null, null);
     }
-
+    
     public Emprestimo(int id, Date dtEmprestimo, Date dtDevolucaoPrevista,
             Date dtDevolucaoReal, Amigo amigo, Ferramenta ferramenta) {
         this.id = id;
