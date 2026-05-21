@@ -1,9 +1,7 @@
-
 package servico;
 
 import dao.AmigoDAO;
 import java.util.ArrayList;
-import java.util.List;
 import javax.jws.WebService;
 import modelo.Amigo;
 
@@ -14,9 +12,10 @@ public class AmigoServicoImpl implements AmigoServico {
     private final AmigoDAO dao = new AmigoDAO();
     
     @Override
-    public ArrayList<Amigo> listar() {
-        System.out.println("AAmigoServico: executando listar()");
-        return new ArrayList<>(dao.getMinhaLista());
+    public Amigo[] listar() {
+        System.out.println("AmigoServico: executando listar()");
+        ArrayList<Amigo> lista = dao.getMinhaLista();
+        return lista.toArray(new Amigo[0]);
     }
     
     @Override

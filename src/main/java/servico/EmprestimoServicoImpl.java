@@ -1,26 +1,25 @@
-
 package servico;
 
 import dao.EmprestimoDAO;
-import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
 import modelo.Emprestimo;
- 
+
 /**
  * Implementação do serviço SOAP de Empréstimo.
  */
 @WebService(endpointInterface = "servico.EmprestimoServico")
-public class EmprestimoServicoImpl implements EmprestimoServico{
-    
+public class EmprestimoServicoImpl implements EmprestimoServico {
+
     private final EmprestimoDAO dao = new EmprestimoDAO();
- 
+
     @Override
-    public ArrayList<Emprestimo> listar() {
+    public Emprestimo[] listar() {
         System.out.println("EmprestimoServico: executando listar()");
-        return new ArrayList<>(dao.getMinhaLista());
+        List<Emprestimo> lista = dao.getMinhaLista();
+        return lista.toArray(new Emprestimo[0]);
     }
- 
+
     @Override
     public boolean inserir(Emprestimo emprestimo) {
         System.out.println("EmprestimoServico: executando inserir(...)");
@@ -33,7 +32,7 @@ public class EmprestimoServicoImpl implements EmprestimoServico{
         }
         return dao.insertEmprestimoBD(emprestimo);
     }
- 
+
     @Override
     public boolean alterar(Emprestimo emprestimo) {
         System.out.println("EmprestimoServico: executando alterar(...)");
@@ -42,7 +41,7 @@ public class EmprestimoServicoImpl implements EmprestimoServico{
         }
         return dao.updateEmprestimoBD(emprestimo);
     }
- 
+
     @Override
     public boolean deletar(int id) {
         System.out.println("EmprestimoServico: executando deletar(" + id + ")");
@@ -51,7 +50,7 @@ public class EmprestimoServicoImpl implements EmprestimoServico{
         }
         return dao.deleteEmprestimoBD(id);
     }
- 
+
     @Override
     public boolean registrarDevolucao(int id) {
         System.out.println("EmprestimoServico: executando registrarDevolucao(" + id + ")");
@@ -60,13 +59,13 @@ public class EmprestimoServicoImpl implements EmprestimoServico{
         }
         return dao.registrarDevolucaoBD(id);
     }
- 
+
     @Override
     public String gerarResumoRelatorio() {
         System.out.println("EmprestimoServico: executando gerarResumoRelatorio()");
         return dao.gerarResumoRelatorio();
     }
- 
+
     @Override
     public boolean amigoTemPendencia(int idAmigo) {
         System.out.println("EmprestimoServico: executando amigoTemPendencia(" + idAmigo + ")");

@@ -1,6 +1,6 @@
 package principal;
 
-import visao.FrmMenuPrincipal;
+//import visao.FrmMenuPrincipal;
 
 public class Principal {
 
@@ -10,8 +10,8 @@ public class Principal {
          * Criação de uma instância do formulário principal FrmMenuPrincipal e
          * tornando-o visível para o usuário
          */
-        FrmMenuPrincipal objetotela = new FrmMenuPrincipal();
-        objetotela.setVisible(true);
+        //FrmMenuPrincipal objetotela = new FrmMenuPrincipal();
+        //objetotela.setVisible(true);
 
     }
 }

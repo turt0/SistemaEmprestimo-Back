@@ -21,21 +21,29 @@ public class AmigoDAO extends BaseDAO {
 
             // Executa uma consulta SQL para selecionar todos os registros da tabela tb_amigo
             ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigo");
+
+            int contador = 0;
             while (res.next()) {
                 // Obtém os dados do amigo a partir do resultado da consulta
                 int id = res.getInt("id");
                 String nome = res.getString("nome");
                 String telefone = res.getString("telefone");
 
+                System.out.println("  [DAO.getMinhaLista] linha " + (++contador)
+                        + ": id=" + id + ", nome=" + nome + ", telefone=" + telefone);
+
                 // Cria um objeto Amigo com os dados obtidos e adiciona à lista
                 Amigo objeto = new Amigo(id, nome, telefone);
                 minhaLista.add(objeto);
             }
 
+            System.out.println("  [DAO.getMinhaLista] total de registros lidos: " + contador);
+            System.out.println("  [DAO.getMinhaLista] tamanho da lista retornada: " + minhaLista.size());
+
             // Fecha a instrução após o uso
             stmt.close();
         } catch (SQLException ex) {
-            // Em caso de exceção, imprime o erro
+            System.out.println("  [DAO.getMinhaLista] SQLException: " + ex.getMessage());
             ex.printStackTrace();
         }
         // Retorna a lista de amigos
